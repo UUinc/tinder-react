@@ -8,18 +8,14 @@ function TinderCards() {
     const [people, setPeople] = useState([]);
 
     useEffect(() => {
-        // database
-        //     .collection("people")
-        //     .onSnapshot((snapshot) =>
-        //         setPeople(snapshot.docs.map((doc) => doc.data()))
-        //     );
-
-        let peopleArr = new Array();
         const querySnapshot = getDocs(collection(database, "people"));
         querySnapshot.then((querySnapshot) => {
-            querySnapshot.forEach((doc) => peopleArr.push(doc.data()));
+            querySnapshot.forEach((element) => {
+                var data = element.data();
+                data.key = element.id;
+                setPeople((arr) => [...arr, data]);
+            });
         });
-        setPeople(peopleArr);
     }, []);
 
     return (
@@ -28,7 +24,7 @@ function TinderCards() {
                 {people.map((person) => (
                     <TinderCard
                         className="swipe"
-                        key={person.name}
+                        key={person.key}
                         preventSwipe={["up", "down"]}
                     >
                         <div
@@ -37,7 +33,8 @@ function TinderCards() {
                         >
                             <h3>
                                 {person.name}
-                                <h2>{person.age}</h2>
+                                <br />
+                                {person.age}
                             </h3>
                         </div>
                     </TinderCard>
