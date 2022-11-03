@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, onSnapshot, query } from "firebase/firestore";
 import database from "./firebase";
 import TinderCard from "react-tinder-card";
 import "./TinderCards.css";
@@ -8,14 +8,18 @@ function TinderCards() {
     const [people, setPeople] = useState([]);
 
     useEffect(() => {
-        const querySnapshot = getDocs(collection(database, "people"));
-        querySnapshot.then((querySnapshot) => {
-            querySnapshot.forEach((element) => {
-                var data = element.data();
-                data.key = element.id;
-                setPeople((arr) => [...arr, data]);
+        const q = query(collection(database, "people"));
+        const unsubscribe = onSnapshot(q, (querySnapshot) => {
+            const tmpPeople = [];
+            querySnapshot.forEach((doc) => {
+                var data = doc.data();
+                data.key = doc.id;
+                tmpPeople.push(data);
             });
+            setPeople(tmpPeople);
         });
+
+        return unsubscribe;
     }, []);
 
     return (
@@ -32,9 +36,7 @@ function TinderCards() {
                             className="card"
                         >
                             <h3>
-                                {person.name}
-                                <br />
-                                {person.age}
+                                <b>{person.name}</b> {person.age}
                             </h3>
                         </div>
                     </TinderCard>
