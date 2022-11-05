@@ -3,7 +3,6 @@
     position: relative;
     width: 33.75vh;
     padding: 50px;
-    max-width: 85vw;
     height: 60vh;
     border-radius: 20px;
     background-size: cover;
@@ -24,7 +23,7 @@
 {
     display: flex;
     justify-content: center;
-    margin-top: 5vh;
+    margin-top: 3vh;
 }
 
 .swipe
