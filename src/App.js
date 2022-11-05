@@ -10,6 +10,7 @@ function App() {
             <Router>
                 <Header />
                 <Routes>
+                    {/* Home Page */}
                     <Route
                         path="/"
                         element={
@@ -19,8 +20,24 @@ function App() {
                             </>
                         }
                     />
-                    <Route path="/profile" element={<h1>Profile Page</h1>} />
-                    <Route path="/chat" element={<h1>Chat Page</h1>} />
+                    {/* Profile */}
+                    <Route
+                        path="/profile"
+                        element={
+                            <>
+                                <h1>Profile Page</h1>
+                            </>
+                        }
+                    />
+                    {/* Chat */}
+                    <Route
+                        path="/chat"
+                        element={
+                            <>
+                                <h1>Chat Page</h1>
+                            </>
+                        }
+                    />
                 </Routes>
             </Router>
         </div>

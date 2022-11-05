@@ -1,25 +1,35 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 import logo from "../ressources/logo.png";
 
 // Icons
-import PersonIcon from '@mui/icons-material/Person';
-import ForumIcon from '@mui/icons-material/Forum';
-import IconButton from '@mui/material/IconButton';
+import PersonIcon from "@mui/icons-material/Person";
+import ForumIcon from "@mui/icons-material/Forum";
+import IconButton from "@mui/material/IconButton";
 
-function Header()
-{
+function Header() {
     return (
-        <div className='header'>
-            <IconButton>
-                <PersonIcon className="header-icon" fontSize="large"/>
-            </IconButton>
+        <div className="header">
+            <Link to="/profile">
+                <IconButton>
+                    <PersonIcon className="header-icon" fontSize="large" />
+                </IconButton>
+            </Link>
 
-            <img className='header-logo' src={logo} alt='emsi tinder logo'/>
+            <Link to="/">
+                <img
+                    className="header-logo"
+                    src={logo}
+                    alt="emsi tinder logo"
+                />
+            </Link>
 
-            <IconButton>
-                <ForumIcon className="header-icon" fontSize="large"/>
-            </IconButton>
+            <Link to="/chat">
+                <IconButton>
+                    <ForumIcon className="header-icon" fontSize="large" />
+                </IconButton>
+            </Link>
         </div>
     );
 }
