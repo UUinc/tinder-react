@@ -1,21 +1,32 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
 import logo from "../ressources/logo.png";
 
 // Icons
 import PersonIcon from "@mui/icons-material/Person";
 import ForumIcon from "@mui/icons-material/Forum";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import IconButton from "@mui/material/IconButton";
 
-function Header() {
+function Header({ backButton }) {
+    const navigate = useNavigate();
     return (
         <div className="header">
-            <Link to="/profile">
-                <IconButton>
-                    <PersonIcon className="header-icon" fontSize="large" />
+            {backButton ? (
+                <IconButton onClick={() => navigate(backButton)}>
+                    <ArrowBackIosIcon
+                        className="header-icon"
+                        fontSize="large"
+                    />
                 </IconButton>
-            </Link>
+            ) : (
+                <Link to="/profile">
+                    <IconButton>
+                        <PersonIcon className="header-icon" fontSize="large" />
+                    </IconButton>
+                </Link>
+            )}
 
             <Link to="/">
                 <img
