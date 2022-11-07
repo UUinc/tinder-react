@@ -17,28 +17,33 @@
 {
     padding: 16px !important;
     color: #f5b748 !important;
+    border: 1px solid #f5b748 !important;
 }
 
 .swipeButtons-close
 {
     padding: 16px !important;
     color: #ec5e6f !important;
+    border: 1px solid #ec5e6f !important;
 }
 
 .swipeButtons-StarRate
 {
     padding: 16px !important;
     color: #62b4f9 !important;
+    border: 1px solid #62b4f9 !important;
 }
 
 .swipeButtons-Favorite
 {
     padding: 16px !important;
     color: #76e2b3 !important;
+    border: 1px solid #76e2b3 !important;
 }
 
 .swipeButtons-Flash
 {
     padding: 16px !important;
     color: #915dd1 !important;
+    border: 1px solid #915dd1 !important;
 }
