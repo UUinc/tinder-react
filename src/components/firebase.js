@@ -5,13 +5,7 @@ import { getFirestore } from "firebase/firestore";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyB2OdK3yqoen96l4wWQbFbx3bh734lrwB0",
-    authDomain: "tinder-react-0.firebaseapp.com",
-    projectId: "tinder-react-0",
-    storageBucket: "tinder-react-0.appspot.com",
-    messagingSenderId: "912841341803",
-    appId: "1:912841341803:web:d56d6bf549d29d02de2a2e",
-    measurementId: "G-DE4CV32DFH",
+//put your api key info here
 };
 
 // Initialize Firebase
